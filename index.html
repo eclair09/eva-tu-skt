@@ -1,0 +1,1110 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>💡小さなことば *eva* と *tu* ── 川の流れを変える二つの小石</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 書体：Noto Sans JP -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- アイコン：Font Awesome（アコーディオン用） -->
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: #000000;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background-color: #f5f5f5;
+            border-radius: 12px;
+            border: 1px solid #d3d3d3;
+        }
+
+        .title {
+            font-size: 1.9em;
+            margin: 0 0 10px;
+        }
+
+        .subtitle {
+            font-size: 1.15em;
+            color: #696969;
+            margin: 8px 0 0;
+        }
+
+        .author-info {
+            font-size: 0.95em;
+            color: #696969;
+            margin: 8px 0 0;
+        }
+
+        .research-core {
+            background-color: #e8f4fd;
+            padding: 22px;
+            border-radius: 10px;
+            margin: 28px 0;
+            border-left: 5px solid #4169e1;
+        }
+
+        .research-core h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+
+        .research-core p {
+            margin: 4px 0;
+            font-size: 0.96em;
+        }
+
+        .toggle-all-container {
+            text-align: right;
+            margin: 10px 0 15px;
+        }
+
+        .toggle-all-btn {
+            background-color: #4169e1;
+            color: #ffffff;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 0.9em;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 8px rgba(65, 105, 225, 0.3);
+            transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .toggle-all-btn:hover {
+            background-color: #365abd;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(65, 105, 225, 0.4);
+        }
+
+        .accordion {
+            margin: 20px 0 40px;
+        }
+
+        .accordion-item {
+            border: 1px solid #dddddd;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+
+        .accordion-header {
+            background-color: #f5f5f5;
+            padding: 13px 18px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.05em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.25s ease;
+        }
+
+        .accordion-header:hover {
+            background-color: #ebebeb;
+        }
+
+        .accordion-header span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .emoji {
+            margin-right: 4px;
+        }
+
+        .accordion-content {
+            padding: 0 18px 14px;
+            background-color: #ffffff;
+            border-top: 1px solid #d3d3d3;
+        }
+
+        .accordion-content.collapsed {
+            display: none;
+        }
+
+        .accordion-icon {
+            transition: transform 0.25s ease;
+            color: #696969;
+        }
+
+        .accordion-icon.rotated {
+            transform: rotate(180deg);
+        }
+
+        .section-content {
+            padding-top: 10px;
+            padding-bottom: 6px;
+            font-size: 0.96em;
+        }
+
+        .subsection {
+            margin-bottom: 18px;
+        }
+
+        .subsection h4 {
+            font-size: 1.02em;
+            margin: 0 0 6px;
+            border-left: 4px solid #d3d3d3;
+            padding-left: 8px;
+        }
+
+        .subsection h5 {
+            font-size: 0.98em;
+            margin: 10px 0 5px;
+            font-weight: 600;
+        }
+
+        .sanskrit {
+            color: #4169e1;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .quote {
+            background-color: #f5f5f5;
+            border-left: 4px solid #696969;
+            padding: 12px 16px;
+            margin: 14px 0;
+            color: #696969;
+            font-style: italic;
+            font-size: 0.94em;
+        }
+
+        .important-note {
+            background-color: #fff8f0;
+            border-left: 4px solid #dc143c;
+            padding: 12px 16px;
+            margin: 14px 0;
+            color: #000000;
+            font-size: 0.94em;
+        }
+
+        .note {
+            font-size: 0.9em;
+            color: #696969;
+            margin-top: 4px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 16px 0;
+            border: 1px solid #d3d3d3;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 480px;
+        }
+
+        th, td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e0e0e0;
+            text-align: left;
+            font-size: 0.9em;
+        }
+
+        th {
+            background-color: #f5f5f5;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #fafafa;
+        }
+
+        ul, ol {
+            padding-left: 24px;
+            margin: 6px 0 8px;
+        }
+
+        li {
+            margin: 4px 0;
+        }
+
+        .divider {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d3d3d3, transparent);
+            margin: 24px 0;
+        }
+
+        .footer-note {
+            font-size: 0.85em;
+            color: #696969;
+            text-align: right;
+            margin: 20px 0 0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 14px;
+            }
+
+            .header {
+                padding: 20px;
+                margin-bottom: 28px;
+            }
+
+            .title {
+                font-size: 1.6em;
+            }
+
+            .subtitle {
+                font-size: 1.0em;
+            }
+
+            .accordion-header {
+                font-size: 0.98em;
+                padding: 11px 14px;
+            }
+
+            .accordion-content {
+                padding: 0 14px 12px;
+            }
+
+            table {
+                min-width: 600px;
+            }
+
+            th, td {
+                font-size: 0.85em;
+                padding: 7px 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">💡小さなことば <span class="sanskrit">eva</span> と <span class="sanskrit">tu</span></h1>
+        <h2 class="subtitle">── 川の流れを変える二つの小石と、三つの聖典をつなぐ読み方</h2>
+        <div class="author-info"><strong>著者</strong>：エクレア（サンスクリット研究者／比喩好きな読書案内人）</div>
+        <div class="author-info"><strong>主題</strong>：パーニニ文法・福音書・般若心経・バガヴァッド・ギーターをつなぐ「小さな単語」の働き</div>
+    </div>
+
+    <div class="research-core">
+        <h3><i class="fas fa-lightbulb"></i> このエッセイで目指すこと</h3>
+        <p>
+            ここでの主役は、サンスクリット語の二つの小さな単語──
+            <span class="sanskrit">eva</span> と <span class="sanskrit">tu</span> です。
+        </p>
+        <p>
+            キリスト教の福音書、仏教の般若心経、ヴェーダ聖典としての『バガヴァッド・ギーター』。
+            いくつもの聖典をまたぎながら、これらの語が「どの瞬間」に光を当て、
+            「どこで舵を切っているのか」を、やさしくたどっていきます。
+        </p>
+        <p>
+            ここでのゴールは、「正解を押しつける」ことではありません。
+            むしろ、異なる聖典や文化を読むとき、
+            小さなことばに気づくことで、読書がすこし楽しく、すこし軽くなる──
+            その小さな橋になれたら幸いです。
+        </p>
+    </div>
+
+    <div class="toggle-all-container">
+        <button class="toggle-all-btn" onclick="toggleAllAccordions()" id="toggleAllBtn">
+            <i class="fas fa-expand-arrows-alt"></i> 全てを展開
+        </button>
+    </div>
+
+    <div class="accordion">
+
+        <!-- 第0章 -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span><span class="emoji">🌉</span>はじめに　言葉は世界と世界をつなぐ、小さな橋</span>
+                <i class="fas fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="accordion-content">
+                <div class="section-content">
+                    <div class="subsection">
+                        <h4>1. 異なる聖典を、ひとつの心で読むということ</h4>
+                        <p>
+                            キリスト教の福音書、仏教の般若心経、ヴェーダ聖典としての『バガヴァッド・ギーター』。  
+                            これらは、まったく別々の世界のように見えるかもしれません。
+                        </p>
+                        <p>
+                            けれども、一人の読者として静かにページをめくると、
+                            そこには共通した感覚がふっと立ち上がります。  
+                            「いま、確かなものに触れた気がする」という、小さな手応えです。
+                        </p>
+                        <p>
+                            エクレアは、これらの聖典を「どちらが正しいか」を比べるためではなく、  
+                            言葉を通して <strong>心がひらかれる瞬間</strong> を探すために読み続けてきました。  
+                            このエッセイは、その体験をもとにした、ささやかな「読み方のメモ」です。
+                        </p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>2. 小さなことばが、物語の流れを変える</h4>
+                        <p>
+                            サンスクリット原文の繊細な構造ゆえに、日本語訳で読んでいても、
+                            ところどころで意味の迷いに立ち止まることがあります。  
+                            その迷いは、まるで「鍵の見つからない扉」の前に立つような感覚です。
+                        </p>
+                        <p>
+                            ところが、一つの小さな単語に気づくことで、  
+                            その扉がふっと開き、景色が変わることがあります。
+                            ちょうど、一つの小石が川の流れを変えるように──。
+                        </p>
+                        <p>
+                            このエッセイの主役は、そんな小石のようなことば、  
+                            サンスクリット語の <span class="sanskrit">eva</span> と
+                            <span class="sanskrit">tu</span> です。
+                        </p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>3. このエッセイでいっしょに見ていくこと</h4>
+                        <ul>
+                            <li>パーニニ文法における <span class="sanskrit">nipāta</span>（不変化詞）の考え方</li>
+                            <li><span class="sanskrit">eva</span> が「真実の一点」に光を当てる働き</li>
+                            <li><span class="sanskrit">tu</span> が「語りの本線」へ舵を切り直す働き</li>
+                            <li>福音書・般若心経・ギーター、それぞれの「evaの光」の当たり方</li>
+                        </ul>
+                        <p>
+                            難しい理論を詰め込むよりも、  
+                            「あ、こう読むとすこし楽だな」と感じていただけることを目指して、  
+                            一つひとつの小石を、ていねいに拾っていきます。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第1章 -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span><span class="emoji">📘</span>第1章　小さな単語の世界「nipāta（二パータ）」──文の流れを変える見えない力</span>
+                <i class="fas fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="accordion-content">
+                <div class="section-content">
+                    <div class="subsection">
+                        <h4>1-1. nipāta（二パータ）とは何か</h4>
+                        <p>
+                            パーニニ文法では、<span class="sanskrit">nipāta</span>（二パータ）と呼ばれる語があります。  
+                            これは、「意味がないことば」ではありません。
+                        </p>
+                        <p>
+                            エクレアは、<span class="sanskrit">nipāta</span> を次のように理解しています。
+                        </p>
+                        <div class="quote">
+                            <strong>nipāta は、「実体（<span class="sanskrit">sattva</span>）を指さない」語。</strong><br>
+                            名詞や動詞のように「物」や「行為」を直接指すのではなく、  
+                            文全体の流れやニュアンスを変える、見えない力をもつことば。
+                        </div>
+                        <p>
+                            日本語で言えば、「でも」「しかし」「そして」「だから」といった接続詞や、
+                            一人では立たない小さな前置詞に近い働きです。
+                        </p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>1-2. 小石の比喩で見る nipāta</h4>
+                        <p>
+                            <span class="sanskrit">nipāta</span> の働きは、小石の比喩で考えると分かりやすくなります。
+                        </p>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>比喩の世界</th>
+                                        <th>文の世界</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>川の流れ</td>
+                                        <td>文脈（文全体の流れ）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>川に投げ入れる小石</td>
+                                        <td><span class="sanskrit">nipāta</span>（不変化詞）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>流れのわずかな変化</td>
+                                        <td>ニュアンス・焦点・語りの方向の変化</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>
+                            小石を川に投げると、水はそこでほんの少し向きを変えます。  
+                            同じように、<span class="sanskrit">nipāta</span> も、文の中にそっと置かれることで、
+                            読み手の感じ方や理解の方向を、少しずつ変えていきます。
+                        </p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>1-3. 例文で見る「意味は指さないのに、流れを変える」ことば</h4>
+                        <p>
+                            たとえば、日本語で次のような文を考えてみます。
+                        </p>
+                        <div class="quote">
+                            「彼は疲れていた。<strong>でも</strong>、がんばった。」
+                        </div>
+                        <p>
+                            この「でも」は、「疲れていた彼」そのものを指しているわけでも、
+                            「がんばった」という行為そのものを指しているわけでもありません。  
+                            それなのに、前半と後半の関係を「逆接」としてはっきりさせてくれます。
+                        </p>
+                        <p>
+                            同じことが、サンスクリットの
+                            <span class="sanskrit">tu</span> や <span class="sanskrit">anu</span> といった語でも起こります。
+                        </p>
+                        <p>
+                            たとえば、
+                        </p>
+                        <ul>
+                            <li><span class="sanskrit">… sa tu vyavasthitaḥ</span>：「しかし、彼は立ち続けた。」</li>
+                            <li><span class="sanskrit">sa nadīm anu gacchati</span>：「彼は川にそって歩く。」</li>
+                        </ul>
+                        <p>
+                            ここで、
+                            <span class="sanskrit">tu</span> は前後の文を「逆接」で結び直し、
+                            <span class="sanskrit">anu</span> は動詞「歩く」という行為に「〜にそって」というニュアンスをそっと添えています。
+                        </p>
+                        <p>
+                            どちらも、それだけでは意味が立ちません。  
+                            しかし、文のなかで他の語と結びつくとき、  
+                            <strong>読者の視線や感じ方を静かに動かす、小さな小石</strong> として働きはじめます。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第2章 -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span><span class="emoji">🔦</span>第2章　光として働くことば <span class="sanskrit">eva</span>──「ここにピントを合わせてね」と告げる</span>
+                <i class="fas fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="accordion-content">
+                <div class="section-content">
+                    <div class="subsection">
+                        <h4>2-1. パーニニが教える <span class="sanskrit">eva</span> の本来の働き</h4>
+                        <p>
+                            パーニニは、<span class="sanskrit">eva</span> を
+                            <span class="sanskrit">avadhāraṇa</span>──
+                            「焦点を合わせることば」として説明します。
+                        </p>
+                        <p>
+                            これは、英語の「only」のように「他を全部消し去る」ニュアンスではなく、
+                            ぼんやりした風景の中で、
+                        </p>
+                        <div class="quote">
+                            「この一点に、いまピントを合わせてみましょう。」
+                        </div>
+                        <p>
+                            と、静かに促すような働きです。
+                        </p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>2-2. 「限定」ではなく「ここがいま大事だよ」という合図</h4>
+                        <p>
+                            <span class="sanskrit">eva</span> は、ときどき
+                            「○○だけ」「○○しかない」という排他的な訳で紹介されます。  
+                            しかし、パーニニ文法と古い注釈をたどると、
+                            そこにはもう少しやわらかなニュアンスが見えてきます。
+                        </p>
+                        <p>
+                            それは、
+                        </p>
+                        <ul>
+                            <li>他を悪者にするためではなく、</li>
+                            <li>いま読むべきポイントに光を集めるための、</li>
+                        </ul>
+                        <p>
+                            <strong>「ここがいま、大事な一点ですよ」という照明</strong> なのです。
+                        </p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>2-3. 日常の小さな例：「棚の左端に置いてください <span class="sanskrit">eva</span>」</h4>
+                        <p>
+                            たとえば、次のような指示を考えてみます。
+                        </p>
+                        <div class="quote">
+                            「赤いリンゴは、棚の左端に置いてください <span class="sanskrit">eva</span>。」
+                        </div>
+                        <p>
+                            このとき、
+                            <span class="sanskrit">eva</span> は
+                            「左端以外は世界から消滅せよ」と命じているわけではありません。  
+                            たくさんの棚と、たくさんの置き場所がある中で、
+                        </p>
+                        <p>
+                            <strong>「今回意識してほしいのは、ここだよ。」</strong>  
+                            と、読む人の視線をそっと導いているのです。
+                        </p>
+                        <p>
+                            サンスクリットの文でも、
+                            <span class="sanskrit">eva</span> は
+                            「世界を削るナイフ」ではなく、  
+                            「世界のある一点を浮かびあがらせるスポットライト」として、  
+                            そっと働いています。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第3章 -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span><span class="emoji">🧭</span>第3章　舵として働くことば <span class="sanskrit">tu</span>──話の流れを本線へそっと戻す案内役</span>
+                <i class="fas fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="accordion-content">
+                <div class="section-content">
+                    <div class="subsection">
+                        <h4>3-1. 「しかし」だけでは足りない <span class="sanskrit">tu</span> のニュアンス</h4>
+                        <p>
+                            多くの場合、
+                            <span class="sanskrit">tu</span> は「しかし」「けれども」と訳されます。  
+                            けれども、それだけでは少し物足りないと感じることがあります。
+                        </p>
+                        <p>
+                            エクレアは、<span class="sanskrit">tu</span> を、こんなふうに受け取っています。
+                        </p>
+                        <div class="quote">
+                            「今までの話も大事だけれど、  
+                            ここからは、本線のほうへ舵を切り直しましょう。」
+                        </div>
+                        <p>
+                            前の話を完全に否定するためではなく、  
+                            「ここからは、こういう方向で受け取ってね」と、
+                            語りの向きをそっと変える印なのです。
+                        </p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>3-2. 聖典に見る <span class="sanskrit">tu</span>：宝石店での一言のように</h4>
+                        <p>
+                            たとえば、シュリーマド・バーガヴァタムの有名な詩節には、
+                            次のような一行があります。
+                        </p>
+                        <div class="quote">
+                            <span class="sanskrit">… kṛṣṇas tu bhagavān svayam</span>
+                        </div>
+                        <p>
+                            ここでの <span class="sanskrit">tu</span> は、  
+                            「他の化身は偽物で、クリシュナだけが本物だ」と言いたいのではありません。
+                        </p>
+                        <p>
+                            むしろ、宝石店で店主が、
+                        </p>
+                        <div class="quote">
+                            「どの石も美しく価値があります。  
+                            <strong>しかし</strong>、この一粒は、とくに希少なものなんですよ。」
+                        </div>
+                        <p>
+                            と静かに教えてくれるときの「しかし」に似ています。
+                        </p>
+                        <p>
+                            すべての宝石がそれぞれの仕方で輝きつつ、  
+                            その中で「焦点となる中心」をそっと指し示す──  
+                            <span class="sanskrit">tu</span> は、そのような舵取りを担っているのです。
+                        </p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>3-3. コーヒーとミルクで考える <span class="sanskrit">tu</span></h4>
+                        <p>
+                            日常の例で考えてみましょう。
+                        </p>
+                        <div class="quote">
+                            「この店には、ミルクコーヒーやアレンジもあります。  
+                            <strong>しかし</strong>、もとになっているのは、どれも一杯のコーヒーです。」
+                        </div>
+                        <p>
+                            ここでの「しかし」は、アレンジを否定しているのではなく、
+                        </p>
+                        <ul>
+                            <li>迷ったときに、「何が土台になっているか」を思い出させる</li>
+                            <li>どこまでバリエーションが広がっても、「中心」が失われないようにする</li>
+                        </ul>
+                        <p>
+                            という役割を果たしています。
+                        </p>
+                        <p>
+                            <span class="sanskrit">tu</span> もまた、  
+                            教えや解釈が枝分かれしていく中で、  
+                            「本線はここですよ」と、  
+                            おだやかに舵を切り直す案内役として働いているのです。
+                        </p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>3-4. 光の <span class="sanskrit">eva</span> と、舵の <span class="sanskrit">tu</span></h4>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ことば</th>
+                                        <th>イメージ</th>
+                                        <th>主な働き</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="sanskrit">eva</span></td>
+                                        <td>スポットライト・ピントを合わせるレンズ</td>
+                                        <td>「ここに注目してね」と、真実の一点を照らす</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="sanskrit">tu</span></td>
+                                        <td>舵・方向転換の合図</td>
+                                        <td>「ここからは、この方向で読みましょう」と本線へ戻す</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>
+                            次の章では、この <span class="sanskrit">eva</span> が  
+                            実際に三つの聖典の中で「どんな瞬間」に光を当てているのか、  
+                            具体的に見ていきます。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第4章 -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span><span class="emoji">✨</span>第4章　<span class="sanskrit">eva</span> が照らす「真実の瞬間」──福音書・般若心経・ギーター</span>
+                <i class="fas fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="accordion-content">
+                <div class="section-content">
+                    <div class="subsection">
+                        <h4>4-1. 福音書：マルコ5:36──「聞いた、その時ただちに」</h4>
+                        <p>
+                            あるサンスクリット訳のマルコによる福音書5:36には、
+                            次のような一文が現れます。
+                        </p>
+                        <div class="quote">
+                            <span class="sanskrit">
+                                kintu yīśuḥ tad vākyaṁ śrutvā eva … mā bhaiṣīḥ kevalaṁ viśvāsi hi.
+                            </span>
+                        </div>
+                        <p>
+                            ここでの <span class="sanskrit">eva</span> は、
+                            「聞いた」という行為そのものよりも、
+                        </p>
+                        <ul>
+                            <li>ためらいながら状況を分析したのではなく、</li>
+                            <li>条件を並べてから決めたのでもなく、</li>
+                            <li><strong>「聞いた、その瞬間に」</strong> 心が動いたこと</li>
+                        </ul>
+                        <p>
+                            に光を当てています。
+                        </p>
+                        <p>
+                            イエスは、「恐れることはない。ただ信じなさい」と語ります。  
+                            <span class="sanskrit">eva</span> は、
+                            この言葉が発せられた「今ここ」の即時性を照らし、
+                        </p>
+                        <div class="quote">
+                            「そのとき、彼は迷わず、その人に向き合った。」
+                        </div>
+                        <p>
+                            という心の動きを、やさしく浮かびあがらせています。  
+                            それは、「世界を狭めるための“ただ”」ではなく、
+                            <strong>「信仰の瞬間を見落とさないでね」という照明</strong>としての
+                            <span class="sanskrit">eva</span> なのです。
+                        </p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>4-2. 般若心経：<span class="sanskrit">śūnyatā eva rūpam</span>──目の前の「色」に宿る空</h4>
+                        <p>
+                            般若心経のサンスクリット本文には、よく知られた次の句があります。
+                        </p>
+                        <div class="quote">
+                            <span class="sanskrit">rūpaṁ śūnyatā | śūnyatā eva rūpam</span>
+                        </div>
+                        <p>
+                            「色は空であり。空こそまさに（<span class="sanskrit">eva</span>）色である。」  
+                            ここでも <span class="sanskrit">eva</span> は、
+                            抽象的な「空」という概念だけを持ち上げているのではありません。
+                        </p>
+                        <p>
+                            むしろ、
+                        </p>
+                        <div class="quote">
+                            「いま、あなたの目の前に見えている、この『色（かたち・現象）』のなかに、  
+                            すでに『空』の本質が息づいているよ。」
+                        </div>
+                        <p>
+                            という、視点の切り替えを促しています。
+                        </p>
+                        <p>
+                            「色は偽物で、空だけが本物」という構図ではなく、  
+                            「いま見えているものの奥に、すでに真実が宿っている」という気づきへ。  
+                            <span class="sanskrit">eva</span> は、その一点にピントを合わせる光として働いているのです。
+                        </p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>4-3. バガヴァッド・ギーター18.65：<span class="sanskrit">mām evaiṣyasi</span> が照らす、親密な約束</h4>
+                        <p>
+                            『バガヴァッド・ギーター』18.65には、多くの人に愛される詩節があります。
+                        </p>
+                        <div class="quote">
+                            <span class="sanskrit">
+                                man-manā bhava mad-bhakto mad-yājī māṁ namaskuru<br>
+                                mām evaiṣyasi satyaṁ te pratijāne priyo ’si me
+                            </span>
+                        </div>
+                        <p>
+                            一つの和訳として、こう読むことができます。
+                        </p>
+                        <div class="quote">
+                            わたしを思い、わたしの信愛者であれ。  
+                            わたしを崇拝し、わたしに敬意を捧げよ──  
+                            そうすれば、あなたは<strong>まさに</strong>わたしのもとへ至る。  
+                            真実をあなたに誓う。あなたは、わたしにとって愛おしい。
+                        </div>
+                        <p>
+                            ここでの <span class="sanskrit">mām evaiṣyasi</span> は、  
+                            「他の宗教はすべてダメ」と言いたいわけではありません。
+                        </p>
+                        <p>
+                            <span class="sanskrit">eva</span> の光が当たっているのは、
+                        </p>
+                        <ul>
+                            <li>無数の教えや道のうちで、</li>
+                            <li><strong>「あなたが、心を向ける相手としての、わたし」</strong> という一点</li>
+                        </ul>
+                        <p>
+                            です。
+                        </p>
+                        <p>
+                            「もしあなたが、わたしとの関係に心の焦点を合わせるなら、  
+                            その心は確かに、わたしのもとへ至る。」  
+                            <span class="sanskrit">eva</span> は、この約束にスポットライトを当て、
+                            読む人の心をやさしく照らしています。
+                        </p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>4-4. 三つの伝統に共通する「照明としての <span class="sanskrit">eva</span>」</h4>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>テキスト</th>
+                                        <th>どこを照らしているか</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>マルコ5:36</td>
+                                        <td>「聞いた、その瞬間に」という信頼の即時性</td>
+                                    </tr>
+                                    <tr>
+                                        <td>般若心経</td>
+                                        <td>目の前の「色」のただ中に息づく「空」の真実</td>
+                                    </tr>
+                                    <tr>
+                                        <td>BG 18.65</td>
+                                        <td>「あなた」と「わたし」の親密な関係への焦点</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>
+                            伝統は違っていても、<span class="sanskrit">eva</span> はどこか似た働きをしています。  
+                            それは、世界を細かく切り分けるためではなく、
+                        </p>
+                        <div class="quote">
+                            「ここに、いま、真実が静かに立ちあらわれているよ。」
+                        </div>
+                        <p>
+                            と知らせてくれる、小さな光のような働きです。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第5章（簡略版） -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span><span class="emoji">💎</span>第5章　一と多が離れない世界──宝石・インドラ網・太陽の比喩</span>
+                <i class="fas fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="accordion-content">
+                <div class="section-content">
+                    <div class="subsection">
+                        <h4>5-1. 宝石の比喩──それぞれの輝きと、一つの光</h4>
+                        <p>
+                            evatu の別稿では、「差異なき差異」を説明するために、宝石の比喩を用いました。  
+                            一つひとつの宝石は、それぞれ違うカット・色・輝きをもっていますが、  
+                            光に照らされたとき、そのすべてが「ひとつの光」として目に届きます。
+                        </p>
+                        <p>
+                            聖典や教えも、それぞれの文脈・文化の中で固有の輝きを放ちながら、  
+                            読む人の心の中では、一つの「真実への問い」として響きあう──  
+                            そんなイメージです。
+                        </p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>5-2. インドラ網と太陽の比喩──中心と多様性</h4>
+                        <p>
+                            華厳の世界観では、相互に映り込み合う宝珠の網として、  
+                            世界のあり方が語られることがあります。  
+                            どの一点も他のすべてを映し込み、  
+                            「一」と「多」が切り離せない関係のなかで輝いています。
+                        </p>
+                        <p>
+                            太陽と惑星の比喩に置き換えるなら、
+                        </p>
+                        <ul>
+                            <li>太陽：中心となる真理・絶対者</li>
+                            <li>惑星：具体的な教え・経験・個々の魂</li>
+                            <li>軌道：関係を保つための法則・ダルマ</li>
+                        </ul>
+                        <p>
+                            どれか一つだけでは「太陽系」は成り立たず、  
+                            互いが互いを前提として存在しています。
+                        </p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>5-3. ここでの <span class="sanskrit">eva</span> と <span class="sanskrit">tu</span> の位置</h4>
+                        <p>
+                            この比喩の中で、
+                        </p>
+                        <ul>
+                            <li><span class="sanskrit">eva</span> は、「この中心を見てください」と太陽を照らす光</li>
+                            <li><span class="sanskrit">tu</span> は、「軌道から外れないように」と惑星の向きを整える舵</li>
+                        </ul>
+                        <p>
+                            としてイメージすることができます。
+                        </p>
+                        <p>
+                            もちろん、これは一つの比喩にすぎませんが、  
+                            聖典どうしを対立させるのではなく、  
+                            「それぞれの軌道の中で、同じ光に照らされている」と見る視点を、  
+                            そっと補ってくれます。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第6章：付録 -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span><span class="emoji">📎</span>第6章　付録──文法・詩節・用語のミニメモ</span>
+                <i class="fas fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="accordion-content">
+                <div class="section-content">
+                    <div class="subsection">
+                        <h4>6-1. パーニニ文法で参照した項目</h4>
+                        <ul>
+                            <li><span class="sanskrit">nipāta</span>（二パータ）：実体を指さない語群</li>
+                            <li><span class="sanskrit">avadhāraṇa</span>：焦点化・照明</li>
+                            <li><span class="sanskrit">eva</span>：照明としての小さな語</li>
+                            <li><span class="sanskrit">tu</span>：流れを切り替える小さな語</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>6-2. 参照テキストの詩節・句</h4>
+                        <ul>
+                            <li>マルコによる福音書 5:36（サンスクリット訳）</li>
+                            <li>般若心経 <span class="sanskrit">rūpaṁ śūnyatā | śūnyatā eva rūpam</span></li>
+                            <li>バガヴァッド・ギーター 18.65</li>
+                            <li>シュリーマド・バーガヴァタム 1.3.28（<span class="sanskrit">kṛṣṇas tu bhagavān svayam</span>）</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>6-3. 用語ミニ辞典</h4>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>用語</th>
+                                        <th>意味（このエッセイの文脈で）</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="sanskrit">nipāta</span></td>
+                                        <td>実体を指さないが、文の流れを変える小さな語</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="sanskrit">avadhāraṇa</span></td>
+                                        <td>焦点化・「ここにピントを合わせる」働き</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="sanskrit">eva</span></td>
+                                        <td>真実の一点を照らすスポットライトのような語</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="sanskrit">tu</span></td>
+                                        <td>語りの方向を本線へ戻す舵のような語</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 第7章：おわりに -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <span><span class="emoji">🌙</span>第7章　おわりに──小さなことばが、読書の灯をともすとき</span>
+                <i class="fas fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="accordion-content">
+                <div class="section-content">
+                    <div class="subsection">
+                        <h4>7-1. 小さな一語が変える、読む人の地図</h4>
+                        <p>
+                            <span class="sanskrit">eva</span> と <span class="sanskrit">tu</span> は、  
+                            どちらも目立たない、小さなことばです。  
+                            しかし、その一語に気づくことで、  
+                            物語の流れや、教えの見え方が、大きく変わることがあります。
+                        </p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>7-2. 異文化の言葉を越えて、読書が軽やかになるように</h4>
+                        <p>
+                            福音書・般若心経・ギーター。  
+                            文化も時代も背景も違うテキストを読むとき、  
+                            わたしたちはつい、「どれが正しいのか」と身構えてしまいがちです。
+                        </p>
+                        <p>
+                            けれども、小さな単語の働きに耳を澄ませてみると、  
+                            そこには、どのテキストも、
+                        </p>
+                        <ul>
+                            <li>ある瞬間に光を当てようとし、</li>
+                            <li>ある方向へ舵を切ろうとする、</li>
+                        </ul>
+                        <p>
+                            共通したやさしさが見えてくることがあります。
+                        </p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>7-3. あなたの読書の旅が、静けさと透明感に満たされますように</h4>
+                        <p>
+                            このエッセイが、あなたの読書のどこか一行に、  
+                            小さな光のように寄り添ってくれたなら、とてもうれしく思います。
+                        </p>
+                        <p>
+                            小さなことば <span class="sanskrit">eva</span> と
+                            <span class="sanskrit">tu</span> が、  
+                            これから出会うテキストの中で、  
+                            あなたの心にそっと灯をともしてくれますように。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-note">
+        ©2025 エクレア・DG
+    </div>
+
+    <script>
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                icon.classList.add('rotated');
+            } else {
+                content.classList.add('collapsed');
+                icon.classList.remove('rotated');
+            }
+        }
+
+        let allExpanded = false;
+
+        function toggleAllAccordions() {
+            const allContents = document.querySelectorAll('.accordion-content');
+            const allIcons = document.querySelectorAll('.accordion-icon');
+            const toggleBtn = document.getElementById('toggleAllBtn');
+
+            if (allExpanded) {
+                // すべて折りたたむ
+                allContents.forEach(content => content.classList.add('collapsed'));
+                allIcons.forEach(icon => icon.classList.remove('rotated'));
+                toggleBtn.innerHTML = '<i class="fas fa-expand-arrows-alt"></i> 全てを展開';
+                allExpanded = false;
+            } else {
+                // すべて展開
+                allContents.forEach(content => content.classList.remove('collapsed'));
+                allIcons.forEach(icon => icon.classList.add('rotated'));
+                toggleBtn.innerHTML = '<i class="fas fa-compress-arrows-alt"></i> 全てを折りたたみ';
+                allExpanded = true;
+            }
+        }
+
+        // 初期状態：上から数セクションだけ開き、それ以外を畳む
+        document.addEventListener('DOMContentLoaded', function () {
+            const allContents = document.querySelectorAll('.accordion-content');
+            const allIcons = document.querySelectorAll('.accordion-icon');
+
+            for (let i = 0; i < allContents.length; i++) {
+                if (i < 2) {
+                    allContents[i].classList.remove('collapsed');
+                    if (allIcons[i]) allIcons[i].classList.add('rotated');
+                } else {
+                    allContents[i].classList.add('collapsed');
+                    if (allIcons[i]) allIcons[i].classList.remove('rotated');
+                }
+            }
+        });
+
+        // 印刷前にはすべて表示する
+        window.addEventListener('beforeprint', function () {
+            const allContents = document.querySelectorAll('.accordion-content');
+            allContents.forEach(content => {
+                content.classList.remove('collapsed');
+            });
+        });
+    </script>
+</body>
+</html>
